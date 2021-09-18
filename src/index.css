@@ -1,0 +1,156 @@
+:root{
+    --lines-color: hsl(234, 11%, 52%);
+    --task-box-color: hsl(233, 14%, 35%);
+    --task-done-box-color: hsl(237, 14%, 26%);
+    --text-color: hsl(234, 39%, 85%);
+    --gradient: linear-gradient(145deg, rgba(87,221,255,1) 0%, rgba(233,189,255,1) 100%);
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar{
+  display:none;
+}
+
+main{
+  width: 50vw;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  margin: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.task-input{
+  box-sizing: border-box;
+  background-color: var(--task-done-box-color);
+  padding: 1em;
+  color: var(--text-color);
+  border:none;
+  width: 100%;
+  height: 4.2em;
+}
+
+input:focus{
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+input::placeholder{
+  font-family: inherit;
+  color: var(--lines-color); 
+}
+
+.btn-submit{
+  display:none;
+}
+
+.list-box{
+  width: 100%;
+}
+
+.task-box{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: .5px solid var(--lines-color); 
+  border-bottom: .5px solid var(--lines-color);
+}
+
+.task-new{
+  background-color: var(--task-box-color);
+}
+
+.task-done{
+  background-color: var(--task-done-box-color);
+}
+
+.task-container{
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle{
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 1px solid var(--lines-color);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.circle:hover{
+  border: 1px solid rgba(87,221,255,1);
+}
+
+.circle-checked{
+  box-sizing: border-box;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 50%;
+  color: white;
+  background: var(--gradient);
+  cursor: pointer;
+}
+
+.delete-icon{
+  color: var(--lines-color);
+  cursor: pointer;
+}
+
+.menu-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+  background-color: var(--task-done-box-color);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.counter{
+  color: var(--lines-color);
+}
+
+.filter-btn{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: var(--lines-color);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1em;
+  transition: all 0.1s linear;
+}
+
+.filter-btn:hover{
+  color: white;
+}
+
+.filter-btn-active{
+  color: hsl(220, 98%, 61%)
+}

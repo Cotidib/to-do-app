@@ -1,0 +1,36 @@
+  .editable-input{
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+  }
+  
+  .editable-input:focus{
+    box-sizing: border-box;
+    border: none;
+    border-radius: none;
+    outline: none;
+    color: var(--text-color);
+  }
+  
+  .editable-text{
+    box-sizing: border-box;
+    background-color: transparent;
+    display: grid;
+    align-items: center;
+    font-size: inherit;
+    font-family: inherit;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+
+  .editable-text-new{
+    color: var(--text-color);
+  }
+
+  .editable-text-done{
+    color: var(--lines-color);
+    text-decoration: line-through;
+  }
