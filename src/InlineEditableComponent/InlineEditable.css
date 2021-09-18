@@ -6,6 +6,10 @@
     font-family: inherit;
     border: none;
   }
+
+  input{
+    width: 300px;
+  }
   
   .editable-input:focus{
     box-sizing: border-box;

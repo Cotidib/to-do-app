@@ -45,7 +45,7 @@ function InlineEditable(props) {
   return (
     <div ref={wrapperRef}>
       {
-        editMode? <input className='editable-input' type='text' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} maxLength='25' ref={inputRef}/> : <span onClick={()=>setEditMode(true)} className={`editable-text ${props.checked? 'editable-text-done':'editable-text-new'}`}>{textDisplay}</span>
+        editMode? <input className='editable-input' type='text' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} maxLength='28' ref={inputRef}/> : <span onClick={()=>setEditMode(true)} className={`editable-text ${props.checked? 'editable-text-done':'editable-text-new'}`}>{textDisplay}</span>
       }
     </div>
   );

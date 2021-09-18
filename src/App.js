@@ -67,7 +67,7 @@ function App() {
         <div>icon toggle</div>
       </section>
       <form onSubmit={handleSubmit}>
-        <input className='task-input' type='text' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} placeholder='type and enter'/>
+        <input className='task-input' type='text' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} placeholder='type and enter' maxLength='28'/>
         <button className='btn-submit' type='submit'/>
       </form>
       <List uncompleted={uncompletedTasks} deleteTask={deleteTask} toggleCheck={toggleCheck} tasks={tasksDisplayed} filterActive={filterActive} filterAll={filterAll} filterComplete={filterComplete} clearCompleted={clearCompleted}/>
