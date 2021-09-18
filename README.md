@@ -15,6 +15,9 @@ Users should be able to:
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
 
+- **Extra feature added**: Local Storage
+- **Extra feature added**: Inline Edit Mode
+
 ### Built with
 
 ### Useful resources

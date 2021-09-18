@@ -18,7 +18,7 @@ function List(props) {
                })
            }
            {
-               props.tasks.length > 0 && <div className='menu-container'>
+            <div className='menu-container'>
                <p className='counter'>{props.uncompleted} items left</p>
                <div>
                    <button onClick={()=>props.filterAll()} className='filter-btn'>All</button>

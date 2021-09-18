@@ -1,22 +1,35 @@
-:root{
-    --lines-color: hsl(234, 11%, 52%);
-    --task-box-color: hsl(233, 14%, 35%);
-    --task-done-box-color: hsl(237, 14%, 26%);
-    --text-color: hsl(234, 39%, 85%);
-    --gradient: linear-gradient(145deg, rgba(87,221,255,1) 0%, rgba(233,189,255,1) 100%);
-}
 
-
-body {
+body{
   margin: 0;
   padding: 0;
   font-family: 'Josefin Sans', sans-serif;
   width: 100vw;
   box-sizing: border-box;
+  background-color: var(--bg);
+  transition: all 0.4s linear;
 }
 
 body::-webkit-scrollbar{
   display:none;
+}
+
+img{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 200px;
+}
+
+h1{
+  color: var(--title-color);
+  font-size: 3.5em;
+}
+
+.toggle-icon{
+  color: var(--title-color);
+  font-size: 2em;
+  cursor: pointer;
 }
 
 main{
@@ -40,12 +53,15 @@ main{
 
 .task-input{
   box-sizing: border-box;
-  background-color: var(--task-done-box-color);
+  background-color: var(--task-box-color);
   padding: 1em;
   color: var(--text-color);
   border:none;
   width: 100%;
   height: 4.2em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: all 0.4s linear;
 }
 
 input:focus{
@@ -64,7 +80,11 @@ input::placeholder{
 }
 
 .list-box{
+  box-sizing: border-box;
   width: 100%;
+  background-color: var(--lines-color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .task-box{
@@ -73,8 +93,8 @@ input::placeholder{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: .5px solid var(--lines-color); 
-  border-bottom: .5px solid var(--lines-color);
+  margin-bottom: 1px;
+  transition: all 0.4s linear;
 }
 
 .task-new{
@@ -127,9 +147,12 @@ input::placeholder{
   flex-direction: row;
   justify-content: space-between;
   align-items:center;
-  background-color: var(--task-done-box-color);
+  background-color: var(--task-box-color);
   padding-left: 1em;
   padding-right: 1em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.4s linear;
 }
 
 .counter{
@@ -148,9 +171,14 @@ input::placeholder{
 }
 
 .filter-btn:hover{
-  color: white;
+  color: var(--fhover);
 }
 
 .filter-btn-active{
   color: hsl(220, 98%, 61%)
+}
+
+.foot{
+  color: var(--footer-color);
+  text-align: center;
 }
