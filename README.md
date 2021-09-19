@@ -19,5 +19,10 @@ Users should be able to:
 - **Extra feature added**: Inline Edit Mode
 
 ### Built with
+- HTML5, CSS3
+- React JS and React Hooks
+- [Styled Components](https://styled-components.com/)
+- [React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd)
 
 ### Useful resources
+- ["How to Add Drag and Drop in React with React Beautiful DnD" by Colby Fayock](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/)

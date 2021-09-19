@@ -89,8 +89,8 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'light'?lightTheme:darkTheme}>
     <GlobalStyles/>
+    <img src={isDarkMode? './images/bg-desktop-dark.jpg' : './images/bg-desktop-light.jpg' } alt='b'/>
     <main>
-      {/* <img src='.\images\bg-desktop-light.jpg' alt=''/> */}
       <section className='header-container'>
         <h1>T O D O</h1>
         {isDarkMode? <FiSun className='toggle-icon' onClick={toggleTheme}/> : <FiMoon className='toggle-icon' onClick={toggleTheme}/>}

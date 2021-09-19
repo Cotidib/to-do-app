@@ -18,7 +18,8 @@ img{
   top:0;
   left:0;
   width: 100%;
-  height: 200px;
+  height: 317.5px;
+  z-index: -1;
 }
 
 h1{
