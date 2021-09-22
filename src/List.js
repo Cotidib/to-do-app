@@ -3,6 +3,17 @@ import InlineEditable from './InlineEditableComponent/InlineEditable';
 import { CgClose, CgCheck } from 'react-icons/cg';
 
 function List(props) {
+
+    const handleEdit = (id,txt) => {
+        let newlist = props.tasks.map((task)=>{
+            if(task.id === id){
+                return {...task,text:txt}
+            }
+            return task
+        })
+        props.setTaskList(newlist);
+    }
+
     return (
         <div className='list-box'>
            {
@@ -10,7 +21,7 @@ function List(props) {
                 return <article key={task.id} className={`task-box ${task.checked? 'task-done':'task-new'}`}>
                     <div className='task-container'>
                         {task.checked? <CgCheck onClick={()=>props.toggleCheck(task.id)} className='circle-checked'/>: <span className='circle' onClick={()=>props.toggleCheck(task.id)}/>}
-                        <InlineEditable content={task.text} className='prueba' checked={task.checked}/>
+                        <InlineEditable id={task.id} content={task.text} className='prueba' checked={task.checked} handleEdit={handleEdit}/>
                     </div> 
                     <CgClose className='delete-icon' onClick={()=>props.deleteTask(task.id)}/>
                 </article>

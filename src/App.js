@@ -85,6 +85,10 @@ function App() {
   useEffect( () => {
     localStorage.setItem('list', JSON.stringify(tasks))
   }, [tasks]);
+
+  const setTaskList = (newlist) => {
+    setTasks(newlist);
+  }
   
   return (
     <ThemeProvider theme={theme === 'light'?lightTheme:darkTheme}>
@@ -99,7 +103,17 @@ function App() {
         <input className='task-input' type='text' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} placeholder='type and enter' maxLength='28'/>
         <button className='btn-submit' type='submit'/>
       </form>
-      <List uncompleted={uncompletedTasks} deleteTask={deleteTask} toggleCheck={toggleCheck} tasks={tasksDisplayed} filterActive={filterActive} filterAll={filterAll} filterComplete={filterComplete} clearCompleted={clearCompleted}/>
+      <List 
+      uncompleted={uncompletedTasks} 
+      deleteTask={deleteTask} 
+      toggleCheck={toggleCheck} 
+      tasks={tasksDisplayed} 
+      setTaskList={setTaskList} 
+      filterActive={filterActive} 
+      filterAll={filterAll} 
+      filterComplete={filterComplete} 
+      clearCompleted={clearCompleted}
+      />
       <p className='foot'>drag and drop text</p>
     </main>
     </ThemeProvider>
