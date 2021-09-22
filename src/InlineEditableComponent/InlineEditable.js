@@ -18,7 +18,7 @@ function InlineEditable(props) {
       // save
       setTextDisplay(inputValue);
       setEditMode(false);
-      // props.handleEdit(props.id,inputValue);
+      props.handleEdit(props.id,inputValue);
     }
   });
 
