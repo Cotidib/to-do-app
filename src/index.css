@@ -180,3 +180,28 @@ input::placeholder{
   color: var(--footer-color);
   text-align: center;
 }
+
+@media (max-width: 500px) {
+  main{
+    min-width: 360px;
+  }
+
+  .menu-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .filter-container{
+    grid-row-start: 2;
+    grid-column: span 3;
+    display: flex;
+    justify-content:center;
+  }
+
+  .clear-comp-btn{
+    grid-row-start:1;
+    grid-column-start:3;
+  }
+
+}

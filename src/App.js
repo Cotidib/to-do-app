@@ -110,14 +110,13 @@ function App() {
       
       <div className='menu-container'>
         <p className='counter'>{uncompletedTasks} items left</p>
-        <div>
+        <div className='filter-container'>
           <button onClick={()=>filterAll()} className='filter-btn'>All</button>
           <button onClick={()=>filterActive()}className='filter-btn'>Active</button>
           <button onClick={()=>filterComplete()} className='filter-btn'>Completed</button>
         </div>
-        <button onClick={()=>clearCompleted()} className='filter-btn'>Clear Completed</button>
-      </div> 
-           
+        <button onClick={()=>clearCompleted()} className='filter-btn clear-comp-btn'>Clear Completed</button>
+      </div>   
       <p className='foot'>drag and drop</p>
     </main>
     </ThemeProvider>
