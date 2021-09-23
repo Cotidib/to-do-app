@@ -33,13 +33,13 @@ h1{
 }
 
 main{
-  width: 50vw;
+  width: 35vw;
   min-width: 450px;
   display: flex;
   flex-direction: column;
   row-gap: 1em;
   margin: auto;
-  margin-top: 5em;
+  margin-top: 4em;
   margin-bottom: 5em;
 }
 
@@ -91,7 +91,7 @@ input::placeholder{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1px;
+  border: .2px solid var(--lines-color);
   /* transition: all 0.4s linear; */
 }
 
@@ -169,7 +169,7 @@ input::placeholder{
 }
 
 .filter-btn:hover{
-  color: var(--fhover);
+  color: var(--filter-hover);
 }
 
 .filter-btn-active{

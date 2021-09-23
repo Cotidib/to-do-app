@@ -10,9 +10,13 @@ function List(props) {
             if(task.id === id){
                 return {...task,text:txt}
             }
-            return task
+            else{
+                return {...task};
+            } 
         })
-        props.setTaskList(newlist);
+    
+        props.setTasks(newlist);
+        props.setTasksDisplayed(newlist);
     }
 
     const handleOnDragEnd = (result) => {
@@ -25,10 +29,11 @@ function List(props) {
             return;
         }
         
-        const items = props.tasks;
+        const items = props.tasksDisplayed;
         const [reorderedItems] = items.splice(result.source.index,1);
         items.splice(result.destination.index,0,reorderedItems);
-        props.setTaskList(items);
+        props.setTasks(items);
+        props.setTasksDisplayed(items);
     }
 
     return (
@@ -38,14 +43,14 @@ function List(props) {
 
                 <div className='list-box' {...provided.droppableProps} ref={provided.innerRef}>
                 {
-                    props.tasks.map((task, index)=>{
+                    props.tasksDisplayed.map((task, index)=>{
                         return <Draggable key={task.id} draggableId={task.id} index={index}>
                             {(provided) => (
                             
                             <article {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} key={task.id} className={`task-box ${task.checked? 'task-done':'task-new'}`}>
                                 <div className='task-container'>
                                     {task.checked? <CgCheck onClick={()=>props.toggleCheck(task.id)} className='circle-checked'/>: <span className='circle' onClick={()=>props.toggleCheck(task.id)}/>}
-                                    <InlineEditable id={task.id} content={task.text} className='prueba' checked={task.checked} handleEdit={handleEdit}/>
+                                    <InlineEditable id={task.id} content={task.text} checked={task.checked} handleEdit={handleEdit}/>
                                 </div> 
                                 <CgClose className='delete-icon' onClick={()=>props.deleteTask(task.id)}/>
                             </article>

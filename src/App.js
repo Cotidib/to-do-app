@@ -85,10 +85,6 @@ function App() {
   useEffect( () => {
     localStorage.setItem('list', JSON.stringify(tasks))
   }, [tasks]);
-
-  const setTaskList = (newlist) => {
-    setTasks(newlist);
-  }
   
   return (
     <ThemeProvider theme={theme === 'light'?lightTheme:darkTheme}>
@@ -106,21 +102,23 @@ function App() {
       <List 
       deleteTask={deleteTask} 
       toggleCheck={toggleCheck} 
-      tasks={tasksDisplayed} 
-      setTaskList={setTaskList}  
+      tasks={tasks} 
+      tasksDisplayed={tasksDisplayed}
+      setTasks={setTasks} 
+      setTasksDisplayed={setTasksDisplayed} 
       />
-      {
-            <div className='menu-container'>
-               <p className='counter'>{uncompletedTasks} items left</p>
-               <div>
-                   <button onClick={()=>filterAll()} className='filter-btn'>All</button>
-                   <button onClick={()=>filterActive()}className='filter-btn'>Active</button>
-                   <button onClick={()=>filterComplete()} className='filter-btn'>Completed</button>
-               </div>
-               <button onClick={()=>clearCompleted()} className='filter-btn'>Clear Completed</button>
-           </div> 
-           }
-      <p className='foot'>drag and drop text</p>
+      
+      <div className='menu-container'>
+        <p className='counter'>{uncompletedTasks} items left</p>
+        <div>
+          <button onClick={()=>filterAll()} className='filter-btn'>All</button>
+          <button onClick={()=>filterActive()}className='filter-btn'>Active</button>
+          <button onClick={()=>filterComplete()} className='filter-btn'>Completed</button>
+        </div>
+        <button onClick={()=>clearCompleted()} className='filter-btn'>Clear Completed</button>
+      </div> 
+           
+      <p className='foot'>drag and drop</p>
     </main>
     </ThemeProvider>
   );
