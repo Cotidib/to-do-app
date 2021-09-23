@@ -1,6 +1,7 @@
 import React from 'react';
 import InlineEditable from './InlineEditableComponent/InlineEditable';
 import { CgClose, CgCheck } from 'react-icons/cg';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 function List(props) {
 
@@ -14,32 +15,52 @@ function List(props) {
         props.setTaskList(newlist);
     }
 
-    return (
-        <div className='list-box'>
-           {
-               props.tasks.map((task)=>{
-                return <article key={task.id} className={`task-box ${task.checked? 'task-done':'task-new'}`}>
-                    <div className='task-container'>
-                        {task.checked? <CgCheck onClick={()=>props.toggleCheck(task.id)} className='circle-checked'/>: <span className='circle' onClick={()=>props.toggleCheck(task.id)}/>}
-                        <InlineEditable id={task.id} content={task.text} className='prueba' checked={task.checked} handleEdit={handleEdit}/>
-                    </div> 
-                    <CgClose className='delete-icon' onClick={()=>props.deleteTask(task.id)}/>
-                </article>
+    const handleOnDragEnd = (result) => {
+        if(!result.destination)
+        {
+            return;
+        }
+        if(result.source.index === result.destination.index && result.source.droppableId === result.destination.droppableId)
+        {
+            return;
+        }
+        
+        const items = props.tasks;
+        const [reorderedItems] = items.splice(result.source.index,1);
+        items.splice(result.destination.index,0,reorderedItems);
+        props.setTaskList(items);
+    }
 
-               })
-           }
-           {
-            <div className='menu-container'>
-               <p className='counter'>{props.uncompleted} items left</p>
-               <div>
-                   <button onClick={()=>props.filterAll()} className='filter-btn'>All</button>
-                   <button onClick={()=>props.filterActive()}className='filter-btn'>Active</button>
-                   <button onClick={()=>props.filterComplete()} className='filter-btn'>Completed</button>
-               </div>
-               <button onClick={()=>props.clearCompleted()} className='filter-btn'>Clear Completed</button>
-           </div> 
-           }
-        </div>
+    return (
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="tasks-droppable">
+        { (provided) => (
+
+                <div className='list-box' {...provided.droppableProps} ref={provided.innerRef}>
+                {
+                    props.tasks.map((task, index)=>{
+                        return <Draggable key={task.id} draggableId={task.id} index={index}>
+                            {(provided) => (
+                            
+                            <article {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} key={task.id} className={`task-box ${task.checked? 'task-done':'task-new'}`}>
+                                <div className='task-container'>
+                                    {task.checked? <CgCheck onClick={()=>props.toggleCheck(task.id)} className='circle-checked'/>: <span className='circle' onClick={()=>props.toggleCheck(task.id)}/>}
+                                    <InlineEditable id={task.id} content={task.text} className='prueba' checked={task.checked} handleEdit={handleEdit}/>
+                                </div> 
+                                <CgClose className='delete-icon' onClick={()=>props.deleteTask(task.id)}/>
+                            </article>
+
+                        )}
+                        </Draggable>
+
+                    })
+                }
+                {provided.placeholder}
+                </div>
+            )
+        }
+        </Droppable>
+        </DragDropContext>
     )
 }
 

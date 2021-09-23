@@ -104,16 +104,22 @@ function App() {
         <button className='btn-submit' type='submit'/>
       </form>
       <List 
-      uncompleted={uncompletedTasks} 
       deleteTask={deleteTask} 
       toggleCheck={toggleCheck} 
       tasks={tasksDisplayed} 
-      setTaskList={setTaskList} 
-      filterActive={filterActive} 
-      filterAll={filterAll} 
-      filterComplete={filterComplete} 
-      clearCompleted={clearCompleted}
+      setTaskList={setTaskList}  
       />
+      {
+            <div className='menu-container'>
+               <p className='counter'>{uncompletedTasks} items left</p>
+               <div>
+                   <button onClick={()=>filterAll()} className='filter-btn'>All</button>
+                   <button onClick={()=>filterActive()}className='filter-btn'>Active</button>
+                   <button onClick={()=>filterComplete()} className='filter-btn'>Completed</button>
+               </div>
+               <button onClick={()=>clearCompleted()} className='filter-btn'>Clear Completed</button>
+           </div> 
+           }
       <p className='foot'>drag and drop text</p>
     </main>
     </ThemeProvider>
