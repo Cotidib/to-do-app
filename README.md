@@ -2,7 +2,7 @@
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).  
 
 ### The challenge
-
+The classic todo app with a few twists! This app includes a dark/light theme toggle and drag & drop reordering for anyone wanting an extra test.
 Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
@@ -26,3 +26,6 @@ Users should be able to:
 
 ### Useful resources
 - ["How to Add Drag and Drop in React with React Beautiful DnD" by Colby Fayock](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/)
+
+### Live Site
+https://constanzas-to-do-app.netlify.app/
